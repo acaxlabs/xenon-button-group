@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="../../polymer/polymer.html" />
+    <link rel="import" href="../xenon-button-group.html"/>
+    <link rel="import" href="../../paper-button/paper-button.html" />
+    <link rel="import" href="../../iron-form/iron-form.html"/>
+    <dom-module id="demo-element">
+        <template>
+            <form is="iron-form" id="form">
+                <xenon-button-group>
+                    <paper-button>Yes</paper-button>
+                    <paper-button>No</paper-button>
+                </xenon-button-group>
+                <paper-button on-click="_go">Validate</paper-button>
+            </form>
+        </template>
+        <script>
+            HTMLImports.whenReady( function(){
+                Polymer({
+                    is:"demo-element",
+                    properties: {
+                    },
+                    ready: function() {
+                    },
+                    _go: function () {
+                        var valid = this.$.form.validate();
+                    }
+                });
+            });
+        </script>
+    </dom-module>
+    <demo-element></demo-element>
+
+    </body>
+</html>

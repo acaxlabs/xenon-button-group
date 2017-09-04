@@ -1,0 +1,16 @@
+{
+  "name": "xenon-button-group",
+  "version": "1.0.0",
+  "authors": [
+    "Don Archer <don.archer@acaexpress.com>"
+  ],
+  "main": "xenon-button-group.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [ ],
+  "dependencies": {
+    "paper-checkbox": "PolymerElements/iron-selector",
+    "paper-button": "PolymerElements/iron-form-element-behavior"
+  }
+}
