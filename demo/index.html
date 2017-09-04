@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
@@ -12,12 +12,19 @@
     <dom-module id="demo-element">
         <template>
             <form is="iron-form" id="form">
-                <xenon-button-group>
+                <div>This Validates</div>
+                <xenon-button-group required>
                     <paper-button>Yes</paper-button>
                     <paper-button>No</paper-button>
                 </xenon-button-group>
                 <paper-button on-click="_go">Validate</paper-button>
             </form>
+            <div>This is preselected</div>
+            <xenon-button-group required selected="blue" id="group" attr-for-selected="name">
+                <paper-button name="red">Red</paper-button>
+                <paper-button name="blue">Blue</paper-button>
+            </xenon-button-group>
+            <paper-button on-click="_log">Log Selected</paper-button>
         </template>
         <script>
             HTMLImports.whenReady( function(){
@@ -29,6 +36,9 @@
                     },
                     _go: function () {
                         var valid = this.$.form.validate();
+                    },
+                    _log: function () {
+                        console.log(this.$.group.selected);
                     }
                 });
             });
