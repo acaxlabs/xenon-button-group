@@ -22,11 +22,11 @@ information about `paper-button`.
     <template>
         <style>
             :host { display: inline-block }
-            #error { color: red; }
+            #error { color:red; font-size:xx-small; visibility:hidden; text-align:center; }
             ::content paper-button[active] { background-color: var(--primary-color); color: white; }
         </style>
             <content></content>
-            <div id="error" hidden>Please Select An Option</div>
+            <div id="error">Please Select An Option</div>
     </template>
 
     <script>
@@ -45,7 +45,7 @@ information about `paper-button`.
             },
             validate: function () {
                 var valid = (this.selected != undefined || !this.required);
-                this.$.error.hidden = valid;
+                this.$.error.style.visibility = valid ? "hidden" : "visible";
                 return valid;
             }
         });
