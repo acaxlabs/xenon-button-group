@@ -1,6 +1,8 @@
 <link rel="import" href="../polymer/polymer.html" />
 <link rel="import" href="../iron-selector/iron-selectable.html">
 <link rel="import" href="../iron-form-element-behavior/iron-form-element-behavior.html">
+<link rel="import" href="../paper-styles/default-theme.html">
+<link rel="import" href="../paper-styles/typography.html">
 <!--link rel="import" href="../iron-a11y-keys-behavior/iron-a11y-keys-behavior.html"-->
 <!--
 `xenon-button-group` allows user to select only one button from a set.
@@ -21,12 +23,19 @@ information about `paper-button`.
 <dom-module id="xenon-button-group">
     <template>
         <style>
-            :host { display: inline-block }
-            #error { color:red; font-size:xx-small; visibility:hidden; text-align:center; }
+            #error {
+                text-align:center;
+                visibility: hidden;
+                color: var(--paper-input-container-invalid-color, --error-color);
+                @apply(--paper-font-caption);
+                @apply(--paper-input-error);
+            }
             ::content paper-button[active] { background-color: var(--primary-color); color: white; }
         </style>
+        <div style="display:inline-block">
             <content></content>
             <div id="error">Please Select An Option</div>
+        </div>
     </template>
 
     <script>
